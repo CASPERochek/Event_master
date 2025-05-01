@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+login
+last_name
+first_name
+middle_name
+birthday
+genger
+password
+<form action="" method="post" target="_blank">
+  {% csrf_token %}
+  <h2>Шаблон формы</h2>
+  <fieldset>
+    <ul>
+      <li>
+        <label >Логин:</label>
+        <input type="text" name="login" placeholder="логин" required>
+      </li>
+      <li>
+      <label >Фамилия:</label>
+        <input type="text" name="last_name" placeholder="Фамилия"  required>
+      </li>
+      <li>
+        <label >Имя:</label>
+        <input type="text" name="first_name" placeholder="Имя"  required>
+      </li>
+      <li>
+        <label >Отчество:</label>
+        <input type="text" name="middle_name" placeholder="Отчество"  required>
+      </li>
+        <li>
+        <label >Дата рождения:</label>
+        <input type="text" name="birthday" placeholder="Дата рождения"  required>
+      </li>
+      <li>
+        <label >Пол:</label>
+        <input type="text" name="genger" placeholder="Пол"  required>
+      </li>
+      <li>
+        <label >Пароль:</label>
+        <input type="text" name="password" placeholder="пароль"  required>
+      </li>
+    </ul>
+  <div>
+    <button type="submit">Отправить</button>
+  </div>
+    </fieldset>
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,295 @@
+body {
+  background-image: url(../images/main.png);
+  background-repeat: repeat;
+  background-color: black;
+  font-family: "Inter";
+  color: #FFFFFF;
+  font-size: 20px;
+}
+
+.navbar-light {
+  background-color: black;
+}
+
+.navbar {
+  background-color: black;
+  background-repeat: repeat-x;
+  font-family: "Inter";
+  color: #FFFFFF;
+  background-image: url(../images/confetti.png);
+}
+
+.collapse {
+  text-align: center !important;
+  margin: auto auto;
+}
+
+.mt-57 {
+  margin-top: 57px !important;
+}
+
+.ml-55 {
+margin-left: 55px !important;
+}
+
+.ml-141 {
+  margin-left: 141px !important;
+}
+
+.ml-216 {
+  margin-left: 216px !important;
+}
+
+.mb-172 {
+  margin-bottom: 172px;
+}
+
+.mb-20 {
+  margin-bottom: 20px !important;
+}
+
+.mt-292 {
+  margin-top: 292px;
+}
+
+.account {
+  margin-top: 50px;
+  margin-left: 141px;
+}
+
+.info {
+  font-size: 40px;
+}
+
+.gradient {
+  font-weight: 900 !important;
+  line-height: 132%;
+  background: linear-gradient(182deg, #ffb640 0%, #dc4e2b 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.info-item {
+  margin-top: 9px;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 132%;
+}
+
+.mt-43 {
+  margin-top: 43px;
+}
+
+.mr-17 {
+  margin-right: 17px;
+}
+
+.main-content {
+  background-image: url(../images/Ellipse2.png);
+  background-repeat: no-repeat;
+  background-position: 50cm 50cm;
+}
+
+.why-are-we {
+  font-weight: 600;
+  font-size: 40px;
+}
+
+.gradient2 {
+  font-weight: 800 !important;
+  background: linear-gradient(182deg, #ffb640 0%, #dc4e2b 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mt-17 {
+  margin-top: 17px;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 132%;
+}
+
+.why-are-we-img {
+  text-align: center;
+  margin-top: 62px;
+}
+
+.mt-404 {
+  margin-top: 404px;
+}
+
+.mb-70 {
+  margin-bottom: 70px;
+}
+
+.ml-140 {
+  margin-left: 140px;
+}
+
+.mt-36 {
+  margin-top: 36px;
+}
+
+.ml-120 {
+  margin-left: 120px;
+}
+
+.mt-235 {
+  margin-top: 235px;
+}
+
+.mt-262 {
+  margin-top: 262px;
+}
+
+.mb-66 {
+  margin-bottom: 66px;
+}
+
+.our-team {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 100%;
+}
+
+.gradient3 {
+  line-height: 132%;
+  font-weight: 600;
+  font-size: 64px;
+  background: linear-gradient(182deg, #ffb640 0%, #dc4e2b 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.possibility {
+  margin-top: 280px;
+  margin-right: 130px;
+}
+
+.volunteer h1 {
+  font-weight: 600;
+  font-size: 40px;
+}
+
+.registration-main {
+  background-image: url(../images/entrance.svg);
+  background-repeat: no-repeat;
+  background-color: black;
+  font-family: "Inter";
+  color: #FFFFFF;
+  font-size: 20px;
+}
+
+.mt-150 {
+  margin-top: 150px; 
+}
+
+.mr-275 {
+  margin-right: 275px; 
+}
+
+.mr-220 {
+  margin-right: 220px !important; 
+}
+
+.mr-225 {
+  margin-right: 225px !important; 
+}
+
+.mr-230 {
+  margin-right: 230px !important; 
+}
+
+.mr-215 {
+  margin-right: 215px !important; 
+}
+
+.mr-300 {
+  margin-right: 300px !important; 
+}
+
+.mt-42 {
+  margin-top: 42px;
+}
+
+.mt-21 {
+  margin-top: 21px;
+}
+
+.create-account {
+  font-size: 27px;
+  margin-right: 96px;
+}
+
+.entrance-account {
+  font-size: 27px;
+  margin-right: 96px;
+}
+
+.ml-1030 {
+  margin-left: 1030px; 
+}
+
+input[type=text] {
+  max-width: 323px;
+}
+
+input{
+    background-color:#FFF;
+    color: #666;
+}
+
+
+
+.entrance1 {
+  font-size: 14px;
+  margin-right: 82px;
+  margin-top: 16px;
+  margin-bottom: 100px; 
+}
+
+.btn-warning {
+  background-color: #E45F2A !important;
+  margin-right: 100px;
+}
+
+.form-control {
+  background-color: black !important;
+  color: white !important;
+}
+
+
+.entrance-main {
+  background-image: url(../images/entrance.svg);
+  background-repeat: no-repeat;
+  background-color: black;
+  font-family: "Inter";
+  color: #FFFFFF;
+  font-size: 20px;
+}
+
+.registration {
+  font-size: 14px;
+  margin-right: 82px;
+  margin-top: 16px;
+  margin-bottom: 100px; 
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
