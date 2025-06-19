@@ -1,8 +1,5 @@
 {% load static %}
-{% static 'users/css/globals.css' %}"
-{% static 'users/css/style.css' %}
 
-"static/main/images/account.svg"
 
 
 
@@ -10,6 +7,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+      <title>Регистрация | EventHub</title>
     <meta charset="utf-8" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,25 +19,82 @@
   </head>
   <body class="registration-main">
       <section class="text-end">
-        <img class="mt-150 mr-275" src="img/EventHub.svg" width="155" height="58" href="#" alt="Логотип">
+        <a href="{% url 'home' %}"><img class="mt-150 mr-275" src="{% static 'users/images/EventHub.svg' %}" width="155" height="58" href="#" alt="Логотип"></a>
         <p class="mt-42 create-account text-uppercase mr-220">Создать аккаунт</p>
-        <div class="input-group mb-3 ml-1030 mt-21">
-          <input type="text" class="form-control" placeholder="ИМЯ" aria-label="ИМЯ" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3 ml-1030 mt-21">
-          <input type="text" class="form-control" placeholder="ФАМИЛИЯ" aria-label="ФАМИЛИЯ" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3 ml-1030 mt-21">
-          <input type="text" class="form-control" placeholder="E-MAIL" aria-label="E-MAIL" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3 ml-1030 mt-21">
-          <input type="text" class="form-control" placeholder="ПАРОЛЬ" aria-label="ПАРОЛЬ" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3 ml-1030 mt-21">
-          <input type="text" class="form-control" placeholder="ПОДТВЕРДИТЬ ПАРОЛЬ" aria-label="ПОДТВЕРДИТЬ ПАРОЛЬ" aria-describedby="basic-addon1">
-        </div>
-        <button type="button" class="btn btn-warning text-white mr-230">ЗАРЕГИСТРИРОВАТЬСЯ</button>
-        <p class="entrance1 mr-215"><span class="gradient">Войти</span> в уже существующий аккаунт</p>
+
+
+       <form method="post">
+  {% csrf_token %}
+  <input type="hidden" name="next" value="{{ next }}" />
+
+  <!-- Поля формы регистрации -->
+  <div class="input-group mb-3 ml-1030 mt-21">
+    {{ form.username }}
+  </div>
+  <div class="input-group mb-3 ml-1030 mt-21">
+    {{ form.email }}
+  </div>
+  <div class="input-group mb-3 ml-1030 mt-21">
+    {{ form.first_name }}
+  </div>
+  <div class="input-group mb-3 ml-1030 mt-21">
+    {{ form.last_name }}
+  </div>
+  <div class="input-group mb-3 ml-1030 mt-21">
+    {{ form.password }}
+  </div>
+  <div class="input-group mb-3 ml-1030 mt-21">
+    {{ form.password2 }}
+  </div>
+
+  <p><button type="submit" class="btn btn-warning text-white mr-230">ЗАРЕГИСТРИРОВАТЬСЯ</button></p>
+</form>
+
+
+<!--        <form method="post">-->
+<!--    {% csrf_token %}-->
+<!--<input type="hidden" name="next" value="{{ next }}" />-->
+<!--    {{ form.as_p }}-->
+<!--    <p ><button type="submit" class="btn btn-warning text-white mr-230">ЗАРЕГИСТРИРОВАТЬСЯ</button></p>-->
+<!--</form>-->
+
+
+
+        <!--        <div class="input-group mb-3 ml-1030 mt-21">-->
+<!--          <input type="text" class="form-control" placeholder="ИМЯ" aria-label="ИМЯ" aria-describedby="basic-addon1">-->
+<!--        </div>-->
+<!--        <div class="input-group mb-3 ml-1030 mt-21">-->
+<!--          <input type="text" class="form-control" placeholder="ФАМИЛИЯ" aria-label="ФАМИЛИЯ" aria-describedby="basic-addon1">-->
+<!--        </div>-->
+<!--        <div class="input-group mb-3 ml-1030 mt-21">-->
+<!--          <input type="text" class="form-control" placeholder="E-MAIL" aria-label="E-MAIL" aria-describedby="basic-addon1">-->
+<!--        </div>-->
+<!--        <div class="input-group mb-3 ml-1030 mt-21">-->
+<!--          <input type="text" class="form-control" placeholder="ПАРОЛЬ" aria-label="ПАРОЛЬ" aria-describedby="basic-addon1">-->
+<!--        </div>-->
+<!--        <div class="input-group mb-3 ml-1030 mt-21">-->
+<!--          <input type="text" class="form-control" placeholder="ПОДТВЕРДИТЬ ПАРОЛЬ" aria-label="ПОДТВЕРДИТЬ ПАРОЛЬ" aria-describedby="basic-addon1">-->
+<!--        </div>-->
+<!--        <button type="button" class="btn btn-warning text-white mr-230">ЗАРЕГИСТРИРОВАТЬСЯ</button>-->
+        <a href="{% url 'users:login' %}"><p class="entrance1 mr-215"><span class="gradient">Войти</span></a> в уже существующий аккаунт</p>
       </section>
   </body>
 </html>
+
+
+<!--<div class="input-group mb-3 ml-1030 mt-21">-->
+<!--          <input type="text" class="form-control" placeholder="ИМЯ" aria-label="ИМЯ" aria-describedby="basic-addon1">-->
+<!--        </div>-->
+<!--        <div class="input-group mb-3 ml-1030 mt-21">-->
+<!--          <input type="text" class="form-control" placeholder="ФАМИЛИЯ" aria-label="ФАМИЛИЯ" aria-describedby="basic-addon1">-->
+<!--        </div>-->
+<!--        <div class="input-group mb-3 ml-1030 mt-21">-->
+<!--          <input type="text" class="form-control" placeholder="E-MAIL" aria-label="E-MAIL" aria-describedby="basic-addon1">-->
+<!--        </div>-->
+<!--        <div class="input-group mb-3 ml-1030 mt-21">-->
+<!--          <input type="text" class="form-control" placeholder="ПАРОЛЬ" aria-label="ПАРОЛЬ" aria-describedby="basic-addon1">-->
+<!--        </div>-->
+<!--        <div class="input-group mb-3 ml-1030 mt-21">-->
+<!--          <input type="text" class="form-control" placeholder="ПОДТВЕРДИТЬ ПАРОЛЬ" aria-label="ПОДТВЕРДИТЬ ПАРОЛЬ" aria-describedby="basic-addon1">-->
+<!--        </div>-->
+<!--        <button type="button" class="btn btn-warning text-white mr-230">ЗАРЕГИСТРИРОВАТЬСЯ</button>-->

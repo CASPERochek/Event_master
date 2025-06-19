@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Вход | EventHub</title>
     <meta charset="utf-8" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,26 +18,57 @@
   </head>
   <body class="entrance-main">
       <section class="text-end">
-        <img class="mt-150 mr-275" src="img/EventHub.svg" width="155" height="58" href="#" alt="Логотип">
-        <p class="mt-42 entrance-account text-uppercase mr-220">Войти в аккаунт</p>
+        <a href="{% url 'home' %}"><img class="mt-150 mr-275" src="{% static 'users/images/EventHub.svg' %}" width="155" height="58"    alt="Логотип"></a>
+        <p class="mt-42 entrance-account text-uppercase mr-220 razm">Войти в аккаунт</p>
 
-        <form method="post">
-          {% csrf_token %}
 
-<!--class="input-group mb-3 ml-1030 mt-21"-->
-          <div >
-          <p >{{ form.as_p }}</p><br>
-            <p><button type="submit" class="btn btn-warning text-white mr-300">ВОЙТИ</button></p>
-          </div>
-        </form>
+
+<form method="post">
+  {% csrf_token %}
+  <input type="hidden" name="next" value="{{ next }}" />
+
+  <!-- Поле логина -->
+  <div class="input-group mb-3 ml-1030 mt-21">
+    {{ form.username }}
+  </div>
+
+  <!-- Поле пароля -->
+  <div class="input-group mb-3 ml-1030 mt-21">
+    {{ form.password }}
+  </div>
+
+  <p><button type="submit" class="btn btn-warning text-white mr-300">ВОЙТИ</button></p>
+</form>
+
+
+<!--        <form method="post">-->
+<!--          {% csrf_token %}-->
+<!--          <input type="hidden" name="next" value="{{ next }}" />-->
+<!--&lt;!&ndash;input-group mb-3 ml-1030 mt-21 form-control&ndash;&gt;-->
+<!--          <div >-->
+<!--          <p>{{ form.as_p }}</p>-->
+<!--            <p><button type="submit" class="btn btn-warning text-white mr-300">ВОЙТИ</button></p>-->
+<!--          </div>-->
+<!--        </form>-->
+
 <!--        <div class="input-group mb-3 ml-1030 mt-21">-->
 <!--          <input type="text" class="form-control" placeholder="E-MAIL" aria-label="E-MAIL" aria-describedby="basic-addon1">-->
 <!--        </div>-->
 <!--        <div class="input-group mb-3 ml-1030 mt-21">-->
 <!--          <input type="text" class="form-control" placeholder="ПАРОЛЬ" aria-label="ПАРОЛЬ" aria-describedby="basic-addon1">-->
 <!--        </div>-->
-<!--        <button type="button" class="btn btn-warning text-white mr-300">ВОЙТИ</button>-->
-        <p class="registration mr-225"><span class="gradient" href="#">Зарегистрировать</span> новый аккаунт</p>
+
+        <a href="{% url 'users:register' %}"><p class="registration mr-225"><span class="gradient" >Зарегистрировать</span></a> новый аккаунт</p>
       </section>
   </body>
 </html>
+
+
+
+<!--<div class="input-group mb-3 ml-1030 mt-21">-->
+<!--          <input type="text" class="form-control" placeholder="E-MAIL" aria-label="E-MAIL" aria-describedby="basic-addon1">-->
+<!--        </div>-->
+<!--        <div class="input-group mb-3 ml-1030 mt-21">-->
+<!--          <input type="text" class="form-control" placeholder="ПАРОЛЬ" aria-label="ПАРОЛЬ" aria-describedby="basic-addon1">-->
+<!--        </div>-->
+<!--        <button type="button" class="btn btn-warning text-white mr-300">ВОЙТИ</button>-->

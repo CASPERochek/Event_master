@@ -11,14 +11,6 @@ body {
   background-color: black;
 }
 
-.navbar {
-  background-color: black;
-  background-repeat: repeat-x;
-  font-family: "Inter";
-  color: #FFFFFF;
-  background-image: url(../images/confetti.png);
-}
-
 .collapse {
   text-align: center !important;
   margin: auto auto;
@@ -40,8 +32,8 @@ margin-left: 55px !important;
   margin-left: 216px !important;
 }
 
-.mb-172 {
-  margin-bottom: 172px;
+.mb-170 {
+  margin-bottom: 170px;
 }
 
 .mb-20 {
@@ -83,12 +75,6 @@ margin-left: 55px !important;
 
 .mr-17 {
   margin-right: 17px;
-}
-
-.main-content {
-  background-image: url(../images/Ellipse2.png);
-  background-repeat: no-repeat;
-  background-position: 50cm 50cm;
 }
 
 .why-are-we {
@@ -163,6 +149,16 @@ margin-left: 55px !important;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.gradient4 {
+  font-weight: 600;
+  font-size: 48px;
+  text-transform: uppercase;
+  background: linear-gradient(184deg, #ffb640 0%, #dc4e2b 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .possibility {
@@ -243,8 +239,6 @@ input{
     color: #666;
 }
 
-
-
 .entrance1 {
   font-size: 14px;
   margin-right: 82px;
@@ -278,6 +272,335 @@ input{
   margin-top: 16px;
   margin-bottom: 100px; 
 }
+
+.mt-50 {
+  margin-top: 50px;
+}
+
+.mt-80 {
+  margin-top: 80px;
+}
+
+.mb-51 {
+  margin-bottom: 51px;
+}
+
+.ml-120 {
+  margin-left: 120px;
+}
+
+.gradient5{
+  font-weight: 500;
+  font-size: 60px;
+  text-transform: uppercase;
+  background: linear-gradient(182deg, #ffb640 0%, #dc4e2b 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.personalAccount {
+  font-family: "Inter";
+  color: #FFFFFF;
+  font-size: 20px;
+  background-image: url(../images/personalAccount.png);
+}
+
+.selectionEvents {
+  font-family: "Inter" !important;
+  color: #FFFFFF !important;
+  font-size: 20px !important;
+}
+
+.card-text {
+  margin-bottom: 8px;
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 14px;
+  color: #000;
+}
+
+.card-title {
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 16px;
+  color: #000;
+}
+
+.event-tag {
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 12px;
+  color: #e85002;
+}
+
+.bg-dark {
+  border-radius: 20px;
+  background-color: #333;
+}
+
+.form-select {
+  form-select-indicator-color: #e85002;
+}
+
+/* Меняем цвет стрелки в select (в Bootstrap 5) */
+.form-select {
+  background-color: #1a1a1a;
+  color: white;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="orange" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1.75rem;
+}
+
+.selectionEvents {
+  background-image: url(../images/selectionEvents.png);
+  background-repeat: repeat;
+  background-color: black;
+}
+
+.events-items {
+  background-color: #333;
+  border-radius: 20px;
+}
+
+.pl-3 {
+  padding-left: 10px;
+}
+
+.color-orange {
+  background: linear-gradient(181deg, #ff8340 0%, #c2330f 100%) !important;
+  background-color: #e85002;
+  border-radius: 20px;
+  border: none;
+}
+
+.bg-orange {
+  background-color: #e85002;
+  color: white;
+}
+
+.wid225 {
+  margin-left: 14px;
+  width: 200px;
+  height: 45px;
+  font-size: 20px;
+  vertical-align: middle;
+  border-radius: 13px;
+}
+
+.name {
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 36px;
+  color: #fff;
+}
+
+.bg-gray {
+  background-color: #333333;
+  border-radius: 20px;
+  border: none;
+}
+
+.ml-30 {
+  padding-left: 30px;
+}
+
+.about-me {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff;
+}
+
+.bg-about-me {
+  background: #171414;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.upcoming-event {
+  font-family: "Inter";
+  font-weight: 700;
+  font-size: 18px;
+  background: linear-gradient(184deg, #ffb640 0%, #dc4e2b 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.rating {
+  font-family: "Inter";
+  font-weight: 500;
+  font-size: 23px;
+  color: #fff;
+}
+
+.my-events{
+  font-family: "Inter";
+  font-weight: 500;
+  font-size: 23px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.type-events {
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 16px;
+  color: #ffb640;
+}
+
+.date-events {
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 18px;
+  color: #fff;
+}
+
+.name-events {
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 20px;
+  color: #fff;
+}
+
+.ml-16 {
+  margin-left: 16px;
+}
+
+
+
+
+
+
+
+.form-check-input:checked {
+
+    background-color: orange;
+    border-color: orange;
+}
+
+.welcome {
+  background-image: url(img/welcome.png);
+}
+
+.welcome h1{
+  font-family: "Inter";
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 132%;
+  text-transform: uppercase;
+  text-align: center;
+  background: linear-gradient(182deg, #ffb640 0%, #dc4e2b 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-entrance{
+  text-decoration-skip-ink: none;
+  color: #ff8340;
+  text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.mt-200 {
+  margin-top: 200px;
+}
+
+.mt-60 {
+  margin-top: 60px;
+}
+
+.mt-32 {
+  margin-top: 32px;
+}
+
+.more {
+  margin-bottom: 8px;
+  font-family: "Roboto";
+  font-weight: 200;
+  font-size: 14px;
+  color: #000;
+}
+
+
+.btn-success {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+}
+
+.btn-success:hover {
+    background-color: #218838 !important;
+    border-color: #1e7e34 !important;
+}
+
+
+
+.become-volunteer {
+  background-image: url(../images/become-volunteer.png);
+}
+
+.become-volunteer h1 {
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 52px;
+  text-transform: uppercase;
+  background: linear-gradient(182deg, #ffb640 0%, #dc4e2b 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.ml-196 {
+  margin-left: 196px;
+}
+
+.mt-80 {
+  margin-top: 80px;
+}
+
+
+/* Стили для рейтинга */
+.rate-item {
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.rate-item:hover {
+    background-color: #495057 !important;
+}
+
+/* Стили для первых трех мест */
+.rate-item:nth-child(1) {
+    background-color: rgba(255, 215, 0, 0.2) !important;
+    border-left: 3px solid gold;
+}
+
+.rate-item:nth-child(2) {
+    background-color: rgba(192, 192, 192, 0.2) !important;
+    border-left: 3px solid silver;
+}
+
+.rate-item:nth-child(3) {
+    background-color: rgba(205, 127, 50, 0.2) !important;
+    border-left: 3px solid #cd7f32;
+}
+
+
+
+/* Стили для кнопки отписки */
+.unregister-form button {
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    padding: 8px 16px;
+}
+
+.unregister-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -287,9 +610,40 @@ input{
 
 
 
+/* Общие стили для формы */
+.form-control {
+    width: 300px;
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    margin-left: auto;
+    margin-right: 0;
+    display: block;
+}
 
+/* Стили для группы полей ввода */
+.input-group {
+    width: 300px;
+    margin-left: auto;
+    margin-right: 195px; /* Сдвигаем вправо, как логотип */
+    margin-bottom: 21px;
+}
 
+/* Стиль для кнопки входа */
+.btn-login {
+    margin-left: auto;
+    margin-right: 220px;
+    display: block;
+    width: 300px;
+}
 
-
-
-
+/* Стиль для ссылки регистрации */
+.registration-link {
+    margin-left: auto;
+    margin-right: 220px;
+    display: block;
+    width: 300px;
+    text-align: right;
+}

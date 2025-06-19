@@ -1,115 +1,287 @@
+<!--{% load static %}-->
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--  <head>-->
+<!--    <meta charset="utf-8" />-->
+<!--    <link rel="preconnect" href="https://fonts.googleapis.com">-->
+<!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">-->
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>-->
+<!--    <link rel="stylesheet"  href="{% static 'main/css/globals.css' %}" />-->
+<!--    <link rel="stylesheet"  href="{% static 'main/css/style.css' %}" />-->
+<!--  </head>-->
+<!--  <body>-->
+<!--    <header>-->
+<!--      <nav class="navbar navbar-expand-lg navbar-dark">-->
+<!--        <div class="container text-center">-->
+<!--          &lt;!&ndash; <a class="navbar-brand mt-57" href="#">Event Hub</a> &ndash;&gt;-->
+<!--          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--            <span class="navbar-toggler-icon"></span>-->
+<!--          </button>-->
+<!--          <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">-->
+<!--            <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">-->
+<!--              <li class="nav-item text-center">-->
+<!--                <img class="navbar-brand ml-120 mt-50" src="static/main/images/EventHub.svg">-->
+<!--              </li>-->
+<!--              <li class="nav-item text-center">-->
+<!--                <a class="nav-link text-white mt-57 ml-216 mb-172" href="">Главная</a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link text-white mt-57 ml-55 mb-172" href="{% url 'event' %}">Мероприятия</a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link text-white mt-57 ml-55 mb-172" href="{% url 'event' %}">Стать волонтером</a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link text-white mt-57 ml-55 mb-172" href="#we">О нас</a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                <a href="{% url 'users:login' %}"><img class="mt-57 ml-141" src="static/main/images/account.svg" width="108" height="40" alt="Вход"></a>-->
+<!--              </li>-->
+<!--            </ul>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </nav>-->
+<!--    </header>-->
+<!--    <main class="main-content">-->
+<!--      <section>-->
+<!--        <h1 class="info text-uppercase text-center fw-bold"><span class="gradient">EventHub</span> – Твоя площадка<br> для событий и волонтерства</h1>-->
+<!--        <p class="info-item text-center">Участвуй в мероприятиях университета, помогай<br> в организации, находи друзей и прокачивай навыки!</p>-->
+<!--        <div class="text-center">-->
+<!--          <a href="{% url 'event' %}"><img class="mt-43 mr-17" src="static/main/images/findevents.svg" width="206" height="40"  alt="Найти мероприятие"></a>-->
+<!--          <a href="{% url 'event' %}"><img class="mt-43" src="static/main/images/becomevolunteer.svg" width="206" height="40"  alt="Стать волонтером"></a>-->
+<!--        </div>-->
+<!--      </section>-->
+
+<!--      <section class="text-center">-->
+<!--        <h1 class="why-are-we text-uppercase mt-292">Почему <span class="gradient2">мы?</span></h1>-->
+<!--        <p class="mt-17">Наш университет – это не только учеба, но и<br> сотни возможностей проявить себя.<br> На нашем сайте вы сможете:</p>-->
+<!--        <img class="why-are-we-img" src="static/main/images/why-we.png" width="910" height="361" alt="Почему мы?">-->
+<!--      </section>-->
+
+<!--      <img class="possibility" src="static/main/images/possibility.svg" align="right" width="502" height="609" alt="Возможности">-->
+<!--      <section class="text-start">-->
+<!--        <h1 class="text-uppercase text-start mt-404 gradient3 ml-140">Присоединяйтесь.<br> учавствуйте.<br> помогайте.</h1>-->
+<!--        <a href="{% url 'event' %}"><img class="mt-36 ml-120" src="static/main/images/allevents.svg" href="#" width="449" height="38" alt="Все мероприятия"></a>-->
+<!--      </section>-->
+
+<!--      <section class="volunteer">-->
+<!--        <h1 class="mt-235 text-center text-uppercase"><span class="gradient">волонтерство</span> - это<br> не только помощь</h1>-->
+<!--        <p class="mt-17 text-center mb-70">Благодаря волонтерству ты сможешь:</p>-->
+
+<!--        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">-->
+<!--          <div class="carousel-inner">-->
+<!--            <div class="carousel-item active" data-bs-interval="5000">-->
+<!--              <img src="static/main/images/carousel-1.svg" width="700" height="370" class="d-block w-100" alt="...">-->
+<!--            </div>-->
+<!--            <div class="carousel-item" data-bs-interval="5000">-->
+<!--              <img src="static/main/images/carousel-2.svg" width="700" height="370" class="d-block w-100" alt="...">-->
+<!--            </div>-->
+<!--            <div class="carousel-item" data-bs-interval="5000">-->
+<!--              <img src="static/main/images/carousel-3.svg" width="700" height="370" class="d-block w-100" alt="...">-->
+<!--            </div>-->
+<!--            <div class="carousel-item" data-bs-interval="5000">-->
+<!--              <img src="static/main/images/carousel-4.svg" width="700" height="370" class="d-block w-100" alt="...">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">-->
+<!--            <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+<!--            <span class="visually-hidden">Предыдущий</span>-->
+<!--          </button>-->
+<!--          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">-->
+<!--            <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+<!--            <span class="visually-hidden">Следующий</span>-->
+<!--          </button>-->
+<!--        </div>-->
+<!--        <div class="text-center">-->
+<!--          <a href="{% url 'event' %}"><img class="mt-43 mr-17" src="static/main/images/findevents.svg" width="206" height="40" href="#" alt="Найти мероприятие"></a>-->
+<!--          <a href="{% url 'event' %}"><img class="mt-43" src="static/main/images/becomevolunteer.svg" width="206" height="40" href="#" alt="Стать волонтером"></a>-->
+<!--        </div>-->
+<!--      </section>-->
+
+<!--      <section class="text-center" id="we">-->
+<!--        <h1 class="text-uppercase mt-262 mb-66 our-team">Мы -  команда <span class="gradient">digital pioneers</span></h1>-->
+<!--        <img class="mb-172" src="static/main/images/our-team.svg" width="1090" height="227" href="#" alt="Наша команда">-->
+<!--      </section>-->
+
+
+<!--    </main>-->
+
+<!--    <footer>-->
+
+<!--    <footer>-->
+<!--  </body>-->
+<!--</html>-->
+
+
 {% load static %}
+
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
+<head>
+    <title>Главная | EventHub</title>
+    <meta charset="utf-8"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{% static 'main/css/globals.css' %}" />
-    <link rel="stylesheet" href="{% static 'main/css/style.css' %}" />
-  </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-dark">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'main/css/globals.css' %}"/>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}"/>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container text-center">
-          <!-- <a class="navbar-brand mt-57" href="#">Event Hub</a> -->
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
-              <li class="nav-item text-center">
-                <a class="nav-link text-white mt-57 ml-216 mb-172" href="#">Главная</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white mt-57 ml-55 mb-172" href="#">Мероприятия</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white mt-57 ml-55 mb-172" href="#">Стать волонтером</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white mt-57 ml-55 mb-172" href="#">О нас</a>
-              </li>
-              <li class="nav-item">
-                <img class="mt-57 ml-141" src="static/main/images/account.svg" width="108" height="40" alt="Вход" href="">
-              </li>
-            </ul>
-          </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
+                    <li class="nav-item text-center">
+                        <a href="{% url 'home' %}"><img class="navbar-brand ml-120 mt-50"
+                                                        src="static/main/images/EventHub.svg"></a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="nav-link text-white mt-57 ml-55 mb-170" href="{% url 'home' %}">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white mt-57 ml-55 mb-170" href="{% url 'event' %}">Мероприятия</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white mt-57 ml-55 mb-170" href="{% url 'volunteering' %}">Стать волонтером</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white mt-57 ml-55 mb-170" href="#we">О нас</a>
+                    </li>
+                    <li class="nav-item">
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'profile' %}"><img class="mt-57 ml-55"
+                                                           src="{% static 'lk/images/account-icon.svg' %}" width="40"
+                                                           height="40" alt="Вход"></a>
+                        <a href="{% url 'users:logout' %}"><img class="mt-57 ml-16"
+                                                                src="{% static 'lk/images/exit-account.svg' %}"
+                                                                width="40" height="40" alt="Вход" href=""></a>
+
+                        {% else %}
+                        <a href="{% url 'users:login' %}"><img class="mt-57 ml-55" src="static/main/images/account.svg"
+                                                               width="108" height="40" alt="Вход" href="#"></a>
+
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
         </div>
-      </nav>
-    </header>
-    <main class="main-content">
-      <section>
-        <h1 class="info text-uppercase text-center fw-bold"><span class="gradient">EventHub</span> – Твоя площадка<br> для событий и волонтерства</h1>
-        <p class="info-item text-center">Участвуй в мероприятиях университета, помогай<br> в организации, находи друзей и прокачивай навыки!</p>
+    </nav>
+</header>
+<main class="main-content">
+    <section>
+        <h1 class="info text-uppercase text-center fw-bold mt-2"><span class="gradient">EventHub</span> – Твоя
+            площадка<br> для событий и волонтерства</h1>
+        <p class="info-item text-center">Участвуй в мероприятиях университета, помогай<br> в организации, находи друзей
+            и прокачивай навыки!</p>
         <div class="text-center">
-          <img class="mt-43 mr-17" src="static/main/images/findevents.svg" width="206" height="40" href="#" alt="Найти мероприятие">
-          <img class="mt-43" src="static/main/images/becomevolunteer.svg" width="206" height="40" href="#" alt="Стать волонтером">
+            <a href="{% url 'event' %}"><img class="mt-43 mr-17" src="static/main/images/findevents.svg" width="206"
+                                             height="40" href="#" alt="Найти мероприятие"></a>
+            <a href="{% url 'volunteering' %}"><img class="mt-43" src="static/main/images/becomevolunteer.svg" width="206"
+                                             height="40" href="#" alt="Стать волонтером"></a>
         </div>
-      </section>
+    </section>
 
-      <section class="text-center">
+    <section class="text-center">
         <h1 class="why-are-we text-uppercase mt-292">Почему <span class="gradient2">мы?</span></h1>
-        <p class="mt-17">Наш университет – это не только учеба, но и<br> сотни возможностей проявить себя.<br> На нашем сайте вы сможете:</p>
-        <img class="why-are-we-img" src="static/main/images/why-we.png" width="910" height="361" alt="Почему мы?">
-      </section>
+        <p class="mt-17">Наш университет – это не только учеба, но и<br> сотни возможностей проявить себя.<br> На нашем
+            сайте вы сможете:</p>
+        <img class="why-are-we-img" src="static/main/images/why-we.svg" width="910" height="361" alt="Почему мы?">
+    </section>
 
-      <img class="possibility" src="static/main/images/possibility.svg" align="right" width="502" height="609" alt="Возможности">
-      <section class="text-start">
-        <h1 class="text-uppercase text-start mt-404 gradient3 ml-140">Присоединяйтесь.<br> учавствуйте.<br> помогайте.</h1>
-        <img class="mt-36 ml-120" src="static/main/images/allevents.svg" href="#" width="449" height="38" alt="Все мероприятия">
-      </section>
 
-      <section class="volunteer">
-        <h1 class="mt-235 text-center text-uppercase"><span class="gradient">волонтерство</span> - это<br> не только помощь</h1>
+    <img class="possibility" src="static/main/images/possibility.svg" align="right" width="502" height="609"
+         alt="Возможности">
+    <section class="text-start">
+        <h1 class="text-uppercase text-start mt-404 gradient3 ml-140">Присоединяйтесь.<br> учавствуйте.<br> помогайте.
+        </h1>
+        <a href="{% url 'event' %}"><img class="mt-36 ml-120" src="static/main/images/allevents.svg" href="#"
+                                         width="449" height="38" alt="Все мероприятия"></a>
+    </section>
+
+    <section class="volunteer">
+        <h1 class="mt-235 text-center text-uppercase"><span class="gradient">волонтерство</span> - это<br> не только
+            помощь</h1>
         <p class="mt-17 text-center mb-70">Благодаря волонтерству ты сможешь:</p>
 
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="5000">
-              <img src="static/main/images/carousel-1.svg" width="700" height="370" class="d-block w-100" alt="...">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="5000">
+                    <img src="static/main/images/carousel-1.svg" width="700" height="370" class="d-block w-100"
+                         alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                    <img src="static/main/images/carousel-2.svg" width="700" height="370" class="d-block w-100"
+                         alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                    <img src="static/main/images/carousel-3.svg" width="700" height="370" class="d-block w-100"
+                         alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="5000">
+                    <img src="static/main/images/carousel-4.svg" width="700" height="370" class="d-block w-100"
+                         alt="...">
+                </div>
             </div>
-            <div class="carousel-item" data-bs-interval="5000">
-              <img src="static/main/images/carousel-2.svg" width="700" height="370" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item" data-bs-interval="5000">
-              <img src="static/main/images/carousel-3.svg" width="700" height="370" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item" data-bs-interval="5000">
-              <img src="static/main/images/carousel-4.svg" width="700" height="370" class="d-block w-100" alt="...">
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Предыдущий</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Следующий</span>
-          </button>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Предыдущий</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Следующий</span>
+            </button>
         </div>
         <div class="text-center">
-          <img class="mt-43 mr-17" src="static/main/images/findevents.svg" width="206" height="40" href="#" alt="Найти мероприятие">
-          <img class="mt-43" src="static/main/images/becomevolunteer.svg" width="206" height="40" href="#" alt="Стать волонтером">
+            <a href="{% url 'event' %}"><img class="mt-43 mr-17" src="static/main/images/findevents.svg" width="206"
+                                             height="40" href="#" alt="Найти мероприятие"></a>
+            <a href="{% url 'volunteering' %}"><img class="mt-43" src="static/main/images/becomevolunteer.svg" width="206"
+                                             height="40" href="#" alt="Стать волонтером"></a>
         </div>
-      </section>
+    </section>
 
-      <section class="text-center">
-        <h1 class="text-uppercase mt-262 mb-66 our-team">Мы -  команда <span class="gradient">digital pioneers</span></h1>
-        <img class="mb-172" src="static/main/images/our-team.png" width="1090" height="227" href="#" alt="Наша команда">
-      </section>
+    <section class="text-center" id="we">
+        <h1 class="text-uppercase mt-262 mb-66 our-team">Мы - команда <span class="gradient">digital pioneers</span>
+        </h1>
+        <img class="mb-172" src="static/main/images/our-team.svg" width="1090" height="227" href="#" alt="Наша команда">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+    </section>
 
 
+</main>
 
+<footer>
+    <p></p>
+    <p></p>
 
-    </main>
-
-    <footer>
-
-    <footer>
-  </body>
+</footer>
+</body>
 </html>

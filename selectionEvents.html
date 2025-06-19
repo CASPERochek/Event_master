@@ -25,16 +25,16 @@
             <img class="navbar-brand ml-120 mt-50" src="img/EventHub.svg">
           </li>
           <li class="nav-item text-center">
-            <a class="nav-link text-white mt-57 ml-55 mb-170 font-selection" href="#">Главная</a>
+            <a class="nav-link text-white mt-57 ml-55 mb-100 font-selection" href="#">Главная</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white mt-57 ml-55 mb-170 font-selection" href="#">Мероприятия</a>
+            <a class="nav-link text-white mt-57 ml-55 mb-100 font-selection" href="#">Мероприятия</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white mt-57 ml-55 mb-170 font-selection" href="#">Стать волонтером</a>
+            <a class="nav-link text-white mt-57 ml-55 mb-100 font-selection" href="#">Стать волонтером</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white mt-57 ml-55 mb-170 font-selection" href="#">О нас</a>
+            <a class="nav-link text-white mt-57 ml-55 mb-100 font-selection" href="#">О нас</a>
           </li>
           <li class="nav-item">
             <img class="mt-57 ml-55" src="img/account.svg" width="108" height="40" alt="Вход" href="#">
@@ -95,142 +95,210 @@
             <option value="2">Не нужны волонтеры</option>
           </select>
         </div>
-
+        <a href="#" class="btn btn-primary mt-auto color-orange wid225">Применить</a>
       </div>
 
       <!-- Контент -->
-      <div class="col-md-10">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col-md-10 events-items">
+        <div class="row row-cols-1 row-cols-md-3 g-4 pt-3 pl-3" id="cardsWrapper">
 
           <!-- Карточка мероприятия -->
           <div class="col">
-            <div class="card">
-              <img src="img/music.svg" height="239" width="263" class="card-img-top" alt="Время музыкальных открытий">
-              <div class="card-body">
+            <div class="card h-100"> <!-- Добавляем h-100 для одинаковой высоты карточек -->
+              <img src="img/music.svg" height="359" width="395" class="card-img-top" alt="Время музыкальных открытий">
+              <div class="card-body d-flex flex-column"> <!-- Добавляем flex-контейнер -->
                 <p class="card-text text-muted">16 дек. 2025</p>
                 <h5 class="card-title">Время музыкальных открытий</h5>
                 <p class="event-tag">Концерт</p>
+                <!-- Кнопка с margin-top: auto для позиционирования внизу -->
+                <div class="d-flex justify-content-between align-items-end w-100">
+                  <span class="text-black text-decoration-underline more" data-bs-toggle="tooltip" data-bs-placement="top" title="В рамках концерта «Время музыкальных открытий» прозвучат произведения как известных, так и не столь известных композиторов. Вы услышите композиции в стиле барокко, классицизма, романтизма, а также современные произведения.">Подробнее</span>
+                  <a href="#" class="btn btn-primary mt-auto color-orange">Участвовать</a>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="col">
             <div class="card">
-              <img src="img/heart.svg" height="239" width="263" class="card-img-top" alt="Дом там, где твое сердце">
-              <div class="card-body">
+              <img src="img/heart.svg" height="359" width="395" class="card-img-top" alt="Дом там, где твое сердце">
+              <div class="card-body d-flex flex-column">
                 <p class="card-text text-muted">25 дек. 2025 – 15 янв. 2026</p>
                 <h5 class="card-title">Дом там, где твое сердце</h5>
                 <p class="event-tag">Выставка</p>
+                <div class="d-flex justify-content-between align-items-end w-100">
+                  <span class="text-black text-decoration-underline more" data-bs-toggle="tooltip" data-bs-placement="top" title="Кафедра культурологии и дизайна УГИ УрФУ и управление развития студенческого потенциала приглашают вас на выставку плакатов и открыток «Дом там, где твое сердце». Первокурсники рассказали о своей малой Родине, о крае, где они родились и выросли.">Подробнее</span>
+                  <a href="#" class="btn btn-primary color-orange">Участвовать</a>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="col">
             <div class="card">
-              <img src="img/heart.svg" height="239" width="263" class="card-img-top" alt="Дом там, где твое сердце">
-              <div class="card-body">
+              <img src="img/opendoors.svg" height="359" width="395" class="card-img-top" alt="Дни открытых дверей">
+              <div class="card-body d-flex flex-column">
                 <p class="card-text text-muted">18 янв. 2026 – 19 янв. 2026</p>
                 <h5 class="card-title">Дни открытых дверей</h5>
                 <p class="event-tag">День открытых дверей</p>
+                <div class="d-flex justify-content-between align-items-end w-100">
+                  <span class="text-black text-decoration-underline more" data-bs-toggle="tooltip" data-bs-placement="top" title="Уральский федеральный университет приглашает одиннадцатиклассников и их родителей на дни открытых дверей. Участникам мероприятия расскажут о возможностях учебной и внеучебной жизни в УрФУ, а также подробно раскроют правила приема в вуз в 2025 году.">Подробнее</span>
+                  <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-primary dropdown-toggle color-orange" data-bs-toggle="dropdown" aria-expanded="false">
+                      Выберите
+                    </button>
+                    <ul class="dropdown-menu bg-orange">
+                      <li><a class="dropdown-item bg-orange" href="#">Участвовать</a></li>
+                      <li><a class="dropdown-item bg-orange" href="#">Стать волонтером</a></li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="col">
             <div class="card">
-              <img src="img/heart.svg" height="239" width="263" class="card-img-top" alt="Дом там, где твое сердце">
-              <div class="card-body">
+              <img src="img/courses.svg" height="359" width="395" class="card-img-top" alt="Курсы для выпускников СПО">
+              <div class="card-body d-flex flex-column">
                 <p class="card-text text-muted">1 фев. 2025 – 13 июл. 2025</p>
                 <h5 class="card-title">Курсы для выпускников СПО</h5>
                 <p class="event-tag">Курс</p>
+                <div class="d-flex justify-content-between align-items-end w-100">
+                  <span class="text-black text-decoration-underline more" data-bs-toggle="tooltip" data-bs-placement="top" title="Выпускники колледжей и техникумов с дипломами о среднем профессиональном образовании (СПО). Форма обучения: очная с применением дистанционных образовательных технологий — это занятия онлайн с преподавателем.">Подробнее</span>
+                  <a href="#" class="btn btn-primary mt-auto color-orange">Участвовать</a>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="col">
             <div class="card">
-              <img src="img/woman.svg" height="239" width="263" class="card-img-top" alt="Личные бренды ученых исследователей">
-              <div class="card-body">
+              <img src="img/woman.svg" height="359" width="395" class="card-img-top" alt="Личные бренды ученых исследователей">
+              <div class="card-body d-flex flex-column">
                 <p class="card-text text-muted">12 фев. 2026</p>
                 <h5 class="card-title">Личные бренды ученых исследователей</h5>
                 <p class="event-tag">Мастер-класс</p>
+                <div class="d-flex justify-content-between align-items-end w-100">
+                  <span class="text-black text-decoration-underline more" data-bs-toggle="tooltip" data-bs-placement="top" title="Эксперт по стратегическим коммуникациям российских университетов Мария Моисеенко прочитает лекцию о выстраивании личного бренда для ученых и исследователей. Специалист расскажет, как найти свою нишу и занять лидирующие позиции в ней, какие критерии позволяют оценивать корректность и эффективность.">Подробнее</span>
+                  <button type="button" class="btn btn-primary dropdown-toggle color-orange" data-bs-toggle="dropdown" aria-expanded="false">
+                    Выберите
+                  </button>
+                  <ul class="dropdown-menu bg-orange">
+                    <li><a class="dropdown-item bg-orange" href="#">Участвовать</a></li>
+                    <li><a class="dropdown-item bg-orange" href="#">Стать волонтером</a></li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="col">
             <div class="card">
-              <img src="img/Photojournalism.svg" height="239" width="263" class="card-img-top" alt="Международный конкурс фотожурналистики">
-              <div class="card-body">
+              <img src="img/Photojournalism.svg" height="359" width="395" class="card-img-top" alt="Международный конкурс фотожурналистики">
+              <div class="card-body d-flex flex-column">
                 <p class="card-text text-muted">28 фев. 2026</p>
                 <h5 class="card-title">Международный конкурс фотожурналистики</h5>
                 <p class="event-tag">Конкурс</p>
+                <div class="d-flex justify-content-between align-items-end w-100">
+                  <span class="text-black text-decoration-underline more" data-bs-toggle="tooltip" data-bs-placement="top" title="Конкурс является единственной в России международной площадкой, которая открывает новые имена в фотожурналистике, развивает ее высокие стандарты, формирует критерии качества документальной фотографии. Цель конкурса — поддержать молодых фотожурналистов в возрасте от 18 до 33 лет в их стремлении к профессиональному мастерству.">Подробнее</span>
+                  <a href="#" class="btn btn-primary mt-auto color-orange">Участвовать</a>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="col">
             <div class="card">
-              <img src="img/Home.svg" height="239" width="263" class="card-img-top" alt="ДДом Бернарды Альбы">
-              <div class="card-body">
+              <img src="img/Home.svg" height="359" width="395" class="card-img-top" alt="Дом Бернарды Альбы">
+              <div class="card-body d-flex flex-column">
                 <p class="card-text text-muted">2 мар. 2026</p>
                 <h5 class="card-title">Дом Бернарды Альбы</h5>
                 <p class="event-tag">Спектакль</p>
+                <div class="d-flex justify-content-between align-items-end w-100">
+                  <span class="text-black text-decoration-underline more" data-bs-toggle="tooltip" data-bs-placement="top" title="Театр «Лингва-Т» приглашает на спектакль по пьесе Федерико Гарсиа Лорки «Дом Бернарды Альбы». Спектакль на испанском языке с последовательным переводом на русский язык">Подробнее</span>
+                  <a href="#" class="btn btn-primary mt-auto color-orange">Участвовать</a>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="col">
             <div class="card">
-              <img src="img/scientist.svg" height="239" width="263" class="card-img-top" alt="Конкурсы РНФ для молодых ученых">
-              <div class="card-body">
+              <img src="img/scientist.svg" height="359" width="395" class="card-img-top" alt="Конкурсы РНФ для молодых ученых">
+              <div class="card-body d-flex flex-column">
                 <p class="card-text text-muted">11 мар. 2025</p>
                 <h5 class="card-title">Конкурсы РНФ для молодых ученых</h5>
                 <p class="event-tag">Конкурс</p>
+                <div class="d-flex justify-content-between align-items-end w-100">
+                  <span class="text-black text-decoration-underline more" data-bs-toggle="tooltip" data-bs-placement="top" title="Продолжается прием заявок на конкурсы РНФ для молодых ученых Президентской программы исследовательских проектов. В первом конкурсе могут принимать участие проекты научных коллективов (от 4 до 8 человек) под руководством кандидатов или докторов наук в возрасте до 35 лет включительно на момент истечения срока подачи заявки.">Подробнее</span>
+                  <a href="#" class="btn btn-primary mt-auto color-orange">Участвовать</a>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="col">
             <div class="card">
-              <img src="img/play-in.svg" height="239" width="263" class="card-img-top" alt="Плей-ин Кубка Лиги Белова">
-              <div class="card-body">
+              <img src="img/play-in.svg" height="359" width="395" class="card-img-top" alt="Плей-ин Кубка Лиги Белова">
+              <div class="card-body d-flex flex-column">
                 <p class="card-text text-muted">28 мар. 2026 - 30 мар. 2026</p>
                 <h5 class="card-title">Плей-ин Кубка Лиги Белова</h5>
                 <p class="event-tag">Спорт</p>
+                <div class="d-flex justify-content-between align-items-end w-100">
+                  <span class="text-black text-decoration-underline more" data-bs-toggle="tooltip" data-bs-placement="top" title="На спортивных площадках института физической культуры, спорта и молодежной политики УрФУ пройдет плей-ин Кубка Лиги Белова. В рамках игр по баскетболу состоится церемония награждения победителей и призеров Студенческой лиги РЖД среди мужских команд чемпионата АСБ (Ассоциация студенческого баскетбола) 2024-2025 года.">Подробнее</span>
+                  <button type="button" class="btn btn-primary dropdown-toggle color-orange" data-bs-toggle="dropdown" aria-expanded="false">
+                    Выберите
+                  </button>
+                  <ul class="dropdown-menu bg-orange">
+                    <li><a class="dropdown-item bg-orange" href="#">Участвовать</a></li>
+                    <li><a class="dropdown-item bg-orange" href="#">Стать волонтером</a></li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="col">
             <div class="card">
-              <img src="img/teacher.svg" height="239" width="263" class="card-img-top" alt="XIV Конгресс учителей">
-              <div class="card-body">
+              <img src="img/teacher.svg" height="359" width="395" class="card-img-top" alt="XIV Конгресс учителей">
+              <div class="card-body d-flex flex-column">
                 <p class="card-text text-muted">29 мар. 2026 - 30 мар. 2026</p>
                 <h5 class="card-title">XIV Конгресс учителей</h5>
                 <p class="event-tag">Конгресс</p>
+                <div class="d-flex justify-content-between align-items-end w-100">
+                  <span class="text-black text-decoration-underline more" data-bs-toggle="tooltip" data-bs-placement="top" title="Традиционно в дни школьных каникул Уральский федеральный университет организует Конгресс учителей УрФУ в целях создания и поддержания социального партнерства университета и школы, а также формирования системы подготовки учащихся школ к поступлению в УрФУ через сотрудничество с педагогическим сообществом.">Подробнее</span>
+                  <a href="#" class="btn btn-primary mt-auto color-orange">Участвовать</a>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="col">
             <div class="card">
-              <img src="img/live.svg" height="239" width="263" class="card-img-top" alt="День. Жизнь. Вечность">
-              <div class="card-body">
+              <img src="img/live.svg" height="359" width="395" class="card-img-top" alt="День. Жизнь. Вечность">
+              <div class="card-body d-flex flex-column">
                 <p class="card-text text-muted">7 апр. 2026</p>
                 <h5 class="card-title">День. Жизнь. Вечность</h5>
                 <p class="event-tag">Спектакль</p>
+                <div class="d-flex justify-content-between align-items-end w-100">
+                  <span class="text-black text-decoration-underline more" data-bs-toggle="tooltip" data-bs-placement="top" title="Лингвистический театр УрФУ «Лингва-Т» приглашает на спектакль «День. Жизнь. Вечность» (12+) по пьесам Лу Синя («Путник» и «Воскрешение»). Спектакль на китайском языке с последовательным переводом на русский язык. В спектакле играет носитель языка.">Подробнее</span>
+                  <a href="#" class="btn btn-primary mt-auto color-orange">Участвовать</a>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="col">
             <div class="card">
-              <img src="img/russia.svg" height="239" width="263" class="card-img-top" alt="Россия и Запад: глобальное противостояние">
-              <div class="card-body">
+              <img src="img/russia.svg" height="359" width="395" class="card-img-top" alt="Россия и Запад: глобальное противостояние">
+              <div class="card-body d-flex flex-column">
                 <p class="card-text text-muted">24 апр. 2026 - 26 апр. 2026</p>
                 <h5 class="card-title">Россия и Запад: глобальное противостояние</h5>
-                <p class="event-tag">Форум</p>
+                <div class="d-flex justify-content-between align-items-end w-100">
+                  <span class="text-black text-decoration-underline more" data-bs-toggle="tooltip" data-bs-placement="top" title="Форум посвящен актуальным вопросам глобального противостояния России и Запада, его историческим корням, современным вызовам и перспективам. Цель форума: объединить молодых исследователей, экспертов и представителей общественности для обсуждения ключевых вопросов международных отношений, истории, политологии и национальной безопасности.">Подробнее</span>
+                  <a href="#" class="btn btn-primary mt-auto color-orange">Участвовать</a>
+                </div>
               </div>
             </div>
           </div>
@@ -239,7 +307,16 @@
       </div>
     </div>
   </div>
-
+    
+    <!-- Активируем все подсказки на странице -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        });
+    </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

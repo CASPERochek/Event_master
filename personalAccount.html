@@ -7,9 +7,15 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="globals.css" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+  <link href='fullcalendar/packages/core/main.css' rel='stylesheet' />
+  <link href='fullcalendar/packages/daygrid/main.css' rel='stylesheet' />
 </head>
 <body class="bg-dark text-white personalAccount">
 
@@ -36,102 +42,280 @@
             <a class="nav-link text-white mt-57 ml-55 mb-170 font-selection" href="#">О нас</a>
           </li>
           <li class="nav-item">
-            <img class="mt-57 ml-55" src="img/account.svg" width="108" height="40" alt="Вход" href="#">
+            <img class="mt-57 ml-55" src="img/account-icon.svg" width="40" height="40" alt="Вход" href="#">
+            <img class="mt-57 ml-16" src="img/exit-account.svg" width="40" height="40" alt="Вход" href="#">
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <div class="container mt-4">
+  <div class="container">
     <h2 class="gradient4 text-uppercase mb-4">Личный кабинет</h2>
     <div class="row">
       <!-- Мои мероприятия -->
-      <div class="col-md-8">
-        <h5>МОИ МЕРОПРИЯТИЯ</h5>
+      <div class="col-md-8 order-md-1">
+        <h5 class="my-events text-uppercase">Мои мероприятия</h5>
         <div class="card bg-secondary mb-3 text-white">
-          <img src="img1.jpg" class="card-img-top" alt="concert">
-          <div class="card-body">
-            <h5 class="card-title">Время музыкальных открытий</h5>
-            <p class="card-text">16 дек. 2024 – Концерт</p>
+          <div class="row g-0">
+            <div class="col-md-8 d-flex align-items-center">
+              <div class="card-body w-100">
+                <p class="card-text date-events mb-3"></p>
+                <h5 class="card-title name-events mb-3">У вас нет мероприятий, на которые вы записаны.</h5>
+                <p class="type-events"></p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="card bg-secondary mb-3 text-white">
-          <img src="img2.jpg" class="card-img-top" alt="exhibit">
-          <div class="card-body">
-            <h5 class="card-title">Дом там, где твое сердце</h5>
-            <p class="card-text">25 дек. 2024 – Выставка</p>
+        </div> 
+
+        <!-- <div class="card bg-secondary mb-3 text-white">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="img/music-PA.svg" class="img-fluid rounded-start" style="border-radius: 10px 0 0 10px; object-fit: cover;" width="308" height="160" alt="Время музыкальных открытий">
+            </div>
+            <div class="col-md-8 d-flex align-items-center">
+              <div class="card-body w-100">
+                <p class="card-text date-events mb-3">16 дек. 2025</p>
+                <h5 class="card-title name-events mb-3">Время музыкальных открытий</h5>
+                <p class="type-events">Концерт</p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="card bg-secondary mb-3 text-white">
-          <img src="img3.jpg" class="card-img-top" alt="open-day">
-          <div class="card-body">
-            <h5 class="card-title">Дни открытых дверей</h5>
-            <p class="card-text">18 янв. 2025 – 19 янв. 2025</p>
+        </div> -->
+
+        <!-- <div class="card bg-secondary mb-3 text-white">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="img/heart-PA.svg" class="img-fluid rounded-start" style="border-radius: 10px 0 0 10px; object-fit: cover;" width="308" height="160" alt="Дом там, где твое сердце">
+            </div>
+            <div class="col-md-8 d-flex align-items-center">
+              <div class="card-body w-100">
+                <p class="card-text date-events mb-3">25 дек. 2025 – 15 янв. 202</p>
+                <h5 class="card-title name-events mb-3">Дом там, где твое сердце</h5>
+                <p class="type-events">Выставка</p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="card bg-secondary mb-3 text-white">
-          <img src="img4.jpg" class="card-img-top" alt="branding">
-          <div class="card-body">
-            <h5 class="card-title">Личные бренды ученых и исследователей</h5>
-            <p class="card-text">18 янв. 2025 – 19 янв. 2025</p>
+        </div> -->
+
+        <!-- <div class="card bg-secondary mb-3 text-white">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="img/opendoors-PA.png" class="img-fluid rounded-start" style="border-radius: 10px 0 0 10px; object-fit: cover;" width="308" height="160" alt="Дни открытых дверей">
+            </div>
+            <div class="col-md-8 d-flex align-items-center">
+              <div class="card-body w-100">
+                <p class="card-text date-events mb-3">18 янв. 2026 – 19 янв. 2026</p>
+                <h5 class="card-title name-events mb-3">Дни открытых дверей</h5>
+                <p class="type-events">День открытых дверей</p>
+              </div>
+            </div>
           </div>
-        </div>
+        </div> -->
+
+        <!-- <div class="card bg-secondary mb-3 text-white">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="img/courses-PA.svg" class="img-fluid rounded-start" style="border-radius: 10px 0 0 10px; object-fit: cover;" width="308" height="160" alt="Курсы для выпускников СПО">
+            </div>
+            <div class="col-md-8 d-flex align-items-center">
+              <div class="card-body w-100">
+                <p class="card-text date-events mb-3">1 фев. 2025 – 13 июл. 2025</p>
+                <h5 class="card-title name-events mb-3">Курсы для выпускников СПО</h5>
+                <p class="type-events">Курс</p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="card bg-secondary mb-3 text-white">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="img/woman-PA.png" class="img-fluid rounded-start" style="border-radius: 10px 0 0 10px; object-fit: cover;" width="308" height="160" alt="Личные бренды ученых исследователей">
+            </div>
+            <div class="col-md-8 d-flex align-items-center">
+              <div class="card-body w-100">
+                <p class="card-text date-events mb-3">12 фев. 2026</p>
+                <h5 class="card-title name-events mb-3">Личные бренды ученых исследователей</h5>
+                <p class="type-events">Мастер-класс</p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="card bg-secondary mb-3 text-white">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="img/photojournalism-PA.svg" class="img-fluid rounded-start" style="border-radius: 10px 0 0 10px; object-fit: cover;" width="308" height="160" alt="Международный конкурс фотожурналистики">
+            </div>
+            <div class="col-md-8 d-flex align-items-center">
+              <div class="card-body w-100">
+                <p class="card-text date-events mb-3">28 фев. 2026</p>
+                <h5 class="card-title name-events mb-3">Международный конкурс фотожурналистики</h5>
+                <p class="type-events">Конкурс</p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+         <!--<div class="card bg-secondary mb-3 text-white">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="img/home-PA.svg" class="img-fluid rounded-start" style="border-radius: 10px 0 0 10px; object-fit: cover;" width="308" height="160" alt="Дом Бернарды Альб">
+            </div>
+            <div class="col-md-8 d-flex align-items-center">
+              <div class="card-body w-100">
+                <p class="card-text date-events mb-3">2 мар. 2026</p>
+                <h5 class="card-title name-events mb-3">Дом Бернарды Альб</h5>
+                <p class="type-events">Спектакль</p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="card bg-secondary mb-3 text-white">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="img/play-in-PA.svg" class="img-fluid rounded-start" style="border-radius: 10px 0 0 10px; object-fit: cover;" width="308" height="160" alt="Плей-ин Кубка Лиги Белова">
+            </div>
+            <div class="col-md-8 d-flex align-items-center">
+              <div class="card-body w-100">
+                <p class="card-text date-events mb-3">28 мар. 2026 - 30 мар. 2026</p>
+                <h5 class="card-title name-events mb-3">Плей-ин Кубка Лиги Белова</h5>
+                <p class="type-events">Спорт</p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+         <!--<div class="card bg-secondary mb-3 text-white">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="img/teacher-PA.svg" class="img-fluid rounded-start" style="border-radius: 10px 0 0 10px; object-fit: cover;" width="308" height="160" alt="XIV Конгресс учителей">
+            </div>
+            <div class="col-md-8 d-flex align-items-center">
+              <div class="card-body w-100">
+                <p class="card-text date-events mb-3">29 мар. 2026 - 30 мар. 2026</p>
+                <h5 class="card-title name-events mb-3">XIV Конгресс учителей</h5>
+                <p class="type-events">Конгресс</p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="card bg-secondary mb-3 text-white">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="img/live-PA.svg" class="img-fluid rounded-start" style="border-radius: 10px 0 0 10px; object-fit: cover;" width="308" height="160" alt="ВДень. Жизнь. Вечность">
+            </div>
+            <div class="col-md-8 d-flex align-items-center">
+              <div class="card-body w-100">
+                <p class="card-text date-events mb-3">7 апр. 2026</p>
+                <h5 class="card-title name-events mb-3">День. Жизнь. Вечность</h5>
+                <p class="type-events">Спектакль</p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="card bg-secondary mb-3 text-white">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="img/scientist-PA.svg" class="img-fluid rounded-start" style="border-radius: 10px 0 0 10px; object-fit: cover;" width="308" height="160" alt="Конкурсы РНФ для молодых ученых">
+            </div>
+            <div class="col-md-8 d-flex align-items-center">
+              <div class="card-body w-100">
+                <p class="card-text date-events mb-3">11 мар. 2025</p>
+                <h5 class="card-title name-events mb-3">Конкурсы РНФ для молодых ученых</h5>
+                <p class="type-events">Конкурс</p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="card bg-secondary mb-3 text-white">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="img/russia-PA.svg" class="img-fluid rounded-start" style="border-radius: 10px 0 0 10px; object-fit: cover;" width="308" height="160" alt="Россия и Запад: глобальное противостояние">
+            </div>
+            <div class="col-md-8 d-flex align-items-center">
+              <div class="card-body w-100">
+                <p class="card-text date-events mb-3">24 апр. 2026 - 26 апр. 2026</p>
+                <h5 class="card-title name-events mb-3">Россия и Запад: глобальное противостоянией</h5>
+                <p class="type-events">Форум</p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
       </div>
 
       <!-- Профиль -->
-      <div class="col-md-4">
-        <div class="card bg-secondary text-white mb-3">
-          <div class="card-body">
-            <h5 class="card-title">Иван Иванов</h5>
-            <p class="card-text">
-              Я студент УРФУ и активный волонтер. Обожаю программирование — особенно пишу код на Python и JavaScript, участвую в хакатонах и помогаю новичкам. Люблю сложные задачи и командную работу.
-            </p>
-            <hr>
-            <p><strong>Ближайшее мероприятие:</strong><br>22 апреля 2025 — Филармония</p>
+      <div class="col-md-4 bg-gray order-md-2 position-sticky top-0 h-100">
+        <div class="card text-white bg-gray mb-3">
+          <div class="card-body text-center mt-32">
+            <img  src="img/photoPerson.svg" width="80" height="80" alt="Ваше фото">
+            <h5 class="card-title text-center name mt-3"></h5>
+            <!-- <p class="card-text about-me bg-about-me">
+              
+            </p> -->
           </div>
         </div>
 
         <!-- Календарь -->
-        <div class="card bg-dark text-white mb-3 p-3">
-          <h6 class="text-center">АПРЕЛЬ</h6>
-          <div class="calendar">
-            <!-- Можно заменить на Bootstrap Calendar или просто таблицу -->
-            <table class="table table-sm text-white text-center">
-              <thead>
-                <tr><th>ПН</th><th>ВТ</th><th>СР</th><th>ЧТ</th><th>ПТ</th><th>СБ</th><th>ВС</th></tr>
-              </thead>
-              <tbody>
-                <!-- Условная сетка -->
-                <tr><td>31</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td class="text-danger">6</td></tr>
-                <tr><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td></tr>
-                <tr><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td class="text-danger">19</td><td class="text-danger">20</td></tr>
-                <tr><td>21</td><td class="bg-warning text-dark">22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td></tr>
-                <tr><td>28</td><td>29</td><td>30</td><td></td><td></td><td></td><td></td></tr>
-              </tbody>
-            </table>
+        <div class="content bg-gray">
+            <div id='calendar'></div>
           </div>
+            <script src="js/jquery-3.3.1.min.js"></script>
+            <script src="js/popper.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+
+            <script src='fullcalendar/packages/core/main.js'></script>
+            <script src='fullcalendar/packages/interaction/main.js'></script>
+            <script src='fullcalendar/packages/daygrid/main.js'></script>
+
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+              plugins: [ 'interaction', 'dayGrid' ],
+              defaultDate: '2025-05',
+              editable: true,
+              eventLimit: true,
+            });
+
+            calendar.render();
+          });
+            </script>
+
+        <div class="bg-about-me">
+          <p class="upcoming-event text-uppercase text-center">Ближайшее мероприятие:</p>
+          <p class="upcoming-event-date"> </p>
         </div>
 
         <!-- Рейтинг -->
-        <div class="card bg-secondary text-white">
+        <div class="card bg-gray text-white">
           <div class="card-body">
-            <h6 class="card-title">РЕЙТИНГ</h6>
-            <ol class="ps-3">
-              <li>Иван Иванов — 1233</li>
-              <li>Злой Перец — 1102</li>
-              <li>МастерБист — 902</li>
-              <li>Иван Зола — 900</li>
-              <li>Катя Кварц — 879</li>
-              <li>Женя Мох — 833</li>
+            <h6 class="card-title rating text-center text-uppercase mt-50">Рейтинг ></h6>
+            <ol class="ps-3" start="1">
+              <li class="rate-item bg-about-me"> </li>
             </ol>
           </div>
         </div>
       </div>
     </div>
-  </div>
+</div>
+
+<style>
+/* Для правильной работы sticky */
+.position-sticky {
+  align-self: flex-start;
+}
+</style>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
 
