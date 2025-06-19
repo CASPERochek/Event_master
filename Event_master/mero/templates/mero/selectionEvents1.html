@@ -1,0 +1,417 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Все мероприятия | EventHub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'mero/css/globals.css' %}"/>
+    <link rel="stylesheet" href="{% static 'mero/css/style.css' %}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <style>
+        .card-img-top {
+            height: 359px;
+            width: 395px;
+            object-fit: cover;
+        }
+        .btn-participate {
+            background: linear-gradient(181deg, #ff8340 0%, #c2330f 100%);
+            color: white;
+            border: none;
+        }
+        .btn-participate:hover {
+            background: linear-gradient(181deg, #ff8340 0%, #c2330f 100%);
+            color: white;
+        }
+        .btn-choose {
+            background: linear-gradient(181deg, #ff8340 0%, #c2330f 100%);
+            color: white;
+            border: none;
+        }
+        .btn-choose:hover {
+            background: linear-gradient(181deg, #ff8340 0%, #c2330f 100%);
+            color: white;
+        }
+        .dropdown-item:hover {
+            background-color: #ff8340;
+            color: white;
+        }
+        .more-link {
+            color: black;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .more-link:hover {
+            color: black;
+        }
+        /* Make modal text and title black */
+        .modal-body, .modal-title {
+            color: black;
+        }
+        /* New styles for modal window */
+        .modal-content {
+            border: 6px solid #ff8340 !important;
+            border-radius: 10px !important;
+            border-image: linear-gradient(182deg, #ffb640 0%, #dc4e2b 100%);
+        }
+        .btn-close {
+            filter: invert(71%) sepia(59%) saturate(2464%) hue-rotate(331deg) brightness(101%) contrast(101%) !important;
+            opacity: 1 !important;
+        }
+        .modal-footer .btn-secondary {
+            background-color: #ff8340 !important;
+            border-color: #ff8340 !important;
+            margin: 0 auto;
+            display: block;
+            color: white;
+            font-weight: 500;
+        }
+        .modal-footer {
+            border-top: 1px solid #00000020;
+            justify-content: center !important;
+
+        }
+        .modal-header {
+            border-bottom: 1px solid #00000020;
+        }
+        .badge.bg-primary {
+        background: linear-gradient(182deg, #ffb640 0%, #dc4e2b 100%) !important;
+        border: none;
+        color: white;
+        padding: 0.5em 0.75em;
+    }
+    </style>
+</head>
+<body class="selectionEvents">
+
+<!-- Навигация -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container text-center">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
+                <li class="nav-item text-center">
+                    <a href="{% url 'home' %}">
+                        <img class="navbar-brand ml-120 mt-50" src="{% static 'mero/images/EventHub.svg' %}" alt="EventHub">
+                    </a>
+                </li>
+                <li class="nav-item text-center">
+                    <a class="nav-link text-white mt-57 ml-55 mb-170 font-selection" href="{% url 'home' %}">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white mt-57 ml-55 mb-170 font-selection" href="{% url 'event' %}">Мероприятия</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white mt-57 ml-55 mb-170 font-selection" href="{% url 'volunteering' %}">Стать волонтером</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white mt-57 ml-55 mb-170 font-selection" href="{% url 'home' %}#we">О нас</a>
+                </li>
+                <li class="nav-item">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'profile' %}">
+                            <img class="mt-57 ml-55" src="{% static 'lk/images/account-icon.svg' %}" width="40" height="40" alt="Профиль">
+                        </a>
+                        <a href="{% url 'users:logout' %}">
+                            <img class="mt-57 ml-16" src="{% static 'lk/images/exit-account.svg' %}" width="40" height="40" alt="Выход">
+                        </a>
+                    {% else %}
+                        <a href="{% url 'users:login' %}">
+                            <img class="mt-57 ml-55" src="{% static 'main/images/account.svg' %}" width="108" height="40" alt="Вход">
+                        </a>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <h1 class="main-title gradient5 text-center mb-51">Все мероприятия</h1>
+    <div class="row">
+        <!-- Боковая панель фильтров -->
+        <div class="col-md-2 sidebar">
+            <div class="mb-3 mt-3">
+                <form method="get" class="bg-black text-white p-3 rounded">
+                    <!-- Тип события -->
+                    <div class="mb-3">
+                        {{ filter_form.event_type }}
+                    </div>
+
+                    <!-- Год -->
+                    <div class="mb-3">
+                        {{ filter_form.year }}
+                    </div>
+
+                    <!-- Месяц -->
+                    <div class="mb-3">
+                        {{ filter_form.month }}
+                    </div>
+
+                    <!-- Волонтёрство -->
+                    <div class="mb-3 d-flex align-items-center">
+                        <label class="form-check-label text-white me-2" for="id_volunteering">Волонтёрство</label>
+                        <div class="form-check form-switch m-0">
+                            <input class="form-check-input" type="checkbox" id="id_volunteering" name="volunteering"
+                                   style="width: 3em; height: 1.5em; transition: all 0.3s ease;">
+                        </div>
+                    </div>
+
+                    <!-- Кнопки -->
+                    <button type="submit" class="btn btn-orange w-100"
+                            style="background: linear-gradient(181deg, #ff8340 0%, #c2330f 100%); color: white; border-radius: 13px;">
+                        Применить
+                    </button>
+
+                    <a href="?" class="btn btn-orange w-100 d-block mt-2"
+                       style="background: white; color: black; border-radius: 13px;">
+                        Сбросить
+                    </a>
+                </form>
+            </div>
+        </div>
+
+        <!-- Основной контент -->
+        <div class="col-md-10 events-items">
+            <div class="row row-cols-1 row-cols-md-3 g-4 pt-3 pl-3" id="cardsWrapper">
+                {% for event in events %}
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        {% if event.photo %}
+                        <img src="{{ event.photo.url }}" class="card-img-top"
+                             alt="{{ event.name }}">
+                        {% else %}
+                        <div class="card-img-top bg-secondary"></div>
+                        {% endif %}
+
+                        <div class="card-body d-flex flex-column">
+                            <p class="card-text text-muted">{{ event.time|date:"d.m.Y" }}</p>
+                            <h5 class="card-title">{{ event.name }}</h5>
+
+                            <span class="badge bg-primary mb-2">{{ event.event_type }}</span>
+
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <span class="more-link" data-bs-toggle="modal" data-bs-target="#descriptionModal{{ event.id }}">
+                                    Подробнее
+                                </span>
+
+                                {% if event.volunteering %}
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-choose dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Выберите
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            {% if request.user in event.participants.all %}
+                                                <button class="dropdown-item" disabled>Вы записаны</button>
+                                            {% else %}
+                                                <form class="register-form" data-event-id="{{ event.id }}">
+                                                    {% csrf_token %}
+                                                    <button type="submit" class="dropdown-item">
+                                                        Участвовать (+20 баллов)
+                                                    </button>
+                                                </form>
+                                            {% endif %}
+                                        </li>
+                                        <li>
+                                            <form class="volunteer-form" data-event-id="{{ event.id }}">
+                                                {% csrf_token %}
+                                                <button type="submit" class="dropdown-item">
+                                                    Стать волонтером (+35 баллов)
+                                                </button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
+                                {% else %}
+                                    {% if request.user in event.participants.all %}
+                                        <button class="btn btn-success" disabled>Вы записаны</button>
+                                    {% else %}
+                                        <form class="register-form" data-event-id="{{ event.id }}">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-participate">
+                                                Участвовать (+20 баллов)
+                                            </button>
+                                        </form>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal for description -->
+                    <div class="modal fade" id="descriptionModal{{ event.id }}" tabindex="-1" aria-labelledby="descriptionModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="descriptionModalLabel">{{ event.name }}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    {{ event.description }}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ОКЕЙ</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-12">
+                    <div class="alert alert-info">Мероприятия не найдены</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Общая функция для показа уведомлений
+        function showNotification(type, message) {
+            const notification = document.createElement('div');
+            notification.className = `alert alert-${type} position-fixed top-0 end-0 m-3`;
+            notification.style.zIndex = '1000';
+            notification.innerHTML = `
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                ${message}
+            `;
+            document.body.appendChild(notification);
+
+            // Автоматическое закрытие через 5 секунд
+            setTimeout(() => {
+                notification.remove();
+            }, 5000);
+        }
+
+        // Обработка всех форм записи (участников)
+        document.querySelectorAll('.register-form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault(); // Важно: предотвращаем стандартную отправку формы
+
+                const button = this.querySelector('button');
+                const originalText = button.textContent;
+                const eventId = this.dataset.eventId;
+
+                // Показываем состояние загрузки
+                button.disabled = true;
+                button.innerHTML = `
+                    <span class="spinner-border spinner-border-sm" role="status"></span>
+                    Обработка...
+                `;
+
+                // Подготавливаем данные формы
+                const formData = new FormData(this);
+
+                // Отправляем AJAX-запрос
+                fetch(`/event/${eventId}/register/`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': formData.get('csrfmiddlewaretoken'),
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    body: formData
+                })
+                .then(response => {
+                    if (!response.ok) throw new Error('Ошибка сети');
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.status === 'success') {
+                        // Успешная запись
+                        button.textContent = 'Вы записаны';
+                        button.classList.remove('btn-primary');
+                        button.classList.add('btn-success');
+
+                        // Показываем уведомление
+                        showNotification('success', data.message);
+                    } else {
+                        throw new Error(data.message || 'Ошибка сервера');
+                    }
+                })
+                .catch(error => {
+                    console.error('Ошибка:', error);
+                    button.textContent = originalText;
+                    button.classList.add('btn-danger');
+                    showNotification('error', error.message);
+
+                    // Возвращаем обычный вид через 2 секунды
+                    setTimeout(() => {
+                        button.classList.remove('btn-danger');
+                        button.classList.add('btn-primary');
+                        button.disabled = false;
+                    }, 2000);
+                });
+            });
+        });
+
+        // Обработка форм волонтерства (без изменений, только добавлены уведомления)
+        document.querySelectorAll('.volunteer-form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const button = this.querySelector('button');
+                const originalText = button.textContent;
+                const eventId = this.dataset.eventId;
+
+                button.disabled = true;
+                button.innerHTML = `
+                    <span class="spinner-border spinner-border-sm" role="status"></span>
+                    Обработка...
+                `;
+
+                fetch(`/event/${eventId}/volunteer/`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': this.querySelector('[name=csrfmiddlewaretoken]').value,
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if(data.status === 'success') {
+                        // Обновляем UI
+                        const card = this.closest('.card');
+                        const btnGroup = this.closest('.btn-group');
+                        btnGroup.innerHTML = `
+                            <button class="btn btn-success" disabled>Вы волонтер</button>
+                            <a href="{% url 'doc' %}" class="btn btn-info ms-2">Документы</a>
+                        `;
+
+                        // Добавлено уведомление для волонтеров
+                        showNotification('success', data.message || 'Вы успешно записаны в волонтеры!');
+                    } else {
+                        throw new Error(data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    button.textContent = originalText;
+                    button.classList.add('btn-danger');
+
+                    // Добавлено уведомление об ошибке для волонтеров
+                    showNotification('error', error.message || 'Ошибка при записи в волонтеры');
+
+                    setTimeout(() => {
+                        button.classList.remove('btn-danger');
+                        button.disabled = false;
+                    }, 2000);
+                });
+            });
+        });
+    });
+</script>
+</body>
+</html>

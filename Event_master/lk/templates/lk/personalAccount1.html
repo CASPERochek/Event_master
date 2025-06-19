@@ -1,0 +1,337 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EventHub – Личный кабинет</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'lk/css/globals.css' %}"/>
+    <link rel="stylesheet" href="{% static 'lk/css/style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'lk/css/css/style.css' %}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'lk/js/fonts/icomoon/style.css' %}">
+    <link href="{% static 'lk/js/fullcalendar/packages/core/main.css' %}" rel="stylesheet"/>
+    <link href="{% static 'lk/js/fullcalendar/packages/daygrid/main.css' %}" rel="stylesheet"/>
+    <style>
+    /* Добавляем новый стиль для кнопки отписки */
+    .unregister-form button {
+        background: linear-gradient(182deg, #ffb640 0%, #dc4e2b 100%) !important;
+        border: none !important;
+        margin-top: 10px; /* Сдвигаем кнопку вниз */
+        color: white !important;
+        padding: 8px 16px !important;
+        border-radius: 10px !important;
+    }
+    </style>
+
+</head>
+
+<body class="bg-dark text-white personalAccount">
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container text-center">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
+                <li class="nav-item text-center">
+                    <a href="{% url 'home' %}"><img class="navbar-brand ml-120 mt-50"
+                                                    src="{% static 'lk/images/EventHub.svg' %}"></a>
+                </li>
+                <li class="nav-item text-center">
+                    <a class="nav-link text-white mt-57 ml-55 mb-170 font-selection" href="{% url 'home' %}">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white mt-57 ml-55 mb-170 font-selection" href="{% url 'event' %}">Мероприятия</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white mt-57 ml-55 mb-170 font-selection" href="{% url 'volunteering' %}">Стать
+                        волонтером</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white mt-57 ml-55 mb-170 font-selection" href="{% url 'home' %}#we">О
+                        нас</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'profile' %}"><img class="mt-57 ml-55"
+                                                       src="{% static 'lk/images/account-icon.svg' %}" width="40"
+                                                       height="40" alt="Вход"></a>
+                    <a href="{% url 'users:logout' %}"><img class="mt-57 ml-16"
+                                                            src="{% static 'lk/images/exit-account.svg' %}" width="40"
+                                                            height="40" alt="Вход" href=""></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <h2 class="gradient4 text-uppercase mb-4">Личный кабинет</h2>
+    <div class="row">
+        <!-- Мои мероприятия -->
+        <!-- В разделе "Мои мероприятия" -->
+        <!-- В разделе "Мои мероприятия" -->
+        <!-- В разделе "Мои мероприятия" -->
+<div class="col-md-8 order-md-1">
+    <h5 class="my-events text-uppercase">Мои мероприятия</h5>
+
+    {% if events %}
+    <div class="event-list">
+        {% for event in events %}
+        <div class="card bg-secondary mb-3 text-white">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    {% if event.photo %}
+                    <img src="{{ event.photo.url }}" class="img-fluid rounded-start"
+                         style="border-radius: 10px 0 0 10px; object-fit: cover;"
+                         width="308" height="160" alt="{{ event.name }}">
+                    {% else %}
+                    <img src="{% static 'lk/images/default-event.svg' %}" class="img-fluid rounded-start"
+                         style="border-radius: 10px 0 0 10px; object-fit: cover;"
+                         width="308" height="160" alt="Default event image">
+                    {% endif %}
+                </div>
+                <div class="col-md-8 d-flex align-items-center">
+                    <div class="card-body w-100">
+                        <p class="card-text date-events mb-3">{{ event.time|date:"d.m.Y" }}</p>
+                        <h5 class="card-title name-events mb-3">{{ event.name }}</h5>
+                        {% if event.event_type %}
+                        <p class="type-events">{{ event.event_type }}</p>
+                        {% endif %}
+
+                        <!-- Кнопка отписки -->
+                        <form class="unregister-form"
+      data-event-id="{{ event.id }}"
+      data-is-volunteer="{% if request.user in event.volunteers.all %}true{% else %}false{% endif %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Отписаться</button>
+</form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="alert alert-info">
+        У вас пока нет мероприятий. <a href="{% url 'event' %}">Посмотреть все мероприятия</a>
+    </div>
+    {% endif %}
+</div>
+        <!--<div class="col-md-8 order-md-1">-->
+        <!--    <h5 class="my-events text-uppercase">Мои мероприятия</h5>-->
+
+        <!--    {% if events %}-->
+        <!--    <div class="event-list">-->
+        <!--        {% for event in events %}-->
+        <!--        <div class="card bg-secondary mb-3 text-white">-->
+        <!--            <div class="row g-0">-->
+        <!--                <div class="col-md-4">-->
+        <!--                    {% if event.photo %}-->
+        <!--                    <img src="{{ event.photo.url }}" class="img-fluid rounded-start"-->
+        <!--                         style="border-radius: 10px 0 0 10px; object-fit: cover;"-->
+        <!--                         width="308" height="160" alt="{{ event.name }}">-->
+        <!--                    {% else %}-->
+        <!--                    <img src="{% static 'lk/images/default-event.svg' %}" class="img-fluid rounded-start"-->
+        <!--                         style="border-radius: 10px 0 0 10px; object-fit: cover;"-->
+        <!--                         width="308" height="160" alt="Default event image">-->
+        <!--                    {% endif %}-->
+        <!--                </div>-->
+        <!--                <div class="col-md-8 d-flex align-items-center">-->
+        <!--                    <div class="card-body w-100">-->
+        <!--                        <p class="card-text date-events mb-3">{{ event.time|date:"d.m.Y" }}</p>-->
+        <!--                        <h5 class="card-title name-events mb-3">{{ event.name }}</h5>-->
+        <!--                        {% if event.event_type %}-->
+        <!--                        <p class="type-events">{{ event.event_type }}</p>-->
+        <!--                        {% endif %}-->
+
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--        {% endfor %}-->
+        <!--    </div>-->
+        <!--    {% else %}-->
+        <!--    <div class="alert alert-info">-->
+        <!--        У вас пока нет мероприятий. <a href="{% url 'event' %}">Посмотреть все мероприятия</a>-->
+        <!--    </div>-->
+        <!--    {% endif %}-->
+        <!--</div>-->
+
+        <!-- Профиль -->
+        <div class="col-md-4 bg-gray order-md-2 position-sticky top-0 h-100">
+            <div class="card text-white bg-gray mt-32">
+                <div class="card-body text-center">
+                    <img src="{% static 'lk/images/photoPerson.svg' %}" width="80" height="80" alt="Ваше фото">
+                    <h5 class="card-title text-center name mt-3">{% if user.first_name %}{{ user.first_name}}{% endif%}
+                        {% if user.last_name %}{{ user.last_name}}{% endif %}
+                        {% if user.username == "root" %}{{user.username}}{% endif%}</h5>
+                </div>
+            </div>
+
+            <!-- Календарь -->
+            <div class="content bg-gray">
+                <div id='calendar'></div>
+            </div>
+            <script src="{% static 'lk/js/js/jquery-3.3.1.min.js' %}"></script>
+            <script src="{% static 'lk/js/js/popper.min.js' %}"></script>
+            <script src="{% static 'lk/js/js/bootstrap.min.js' %}"></script>
+
+            <script src="{% static 'lk/js/fullcalendar/packages/core/main.js' %}"></script>
+            <script src="{% static 'lk/js/fullcalendar/packages/interaction/main.js' %}"></script>
+            <script src="{% static 'lk/js/fullcalendar/packages/daygrid/main.js' %}"></script>
+
+<!--            <script>-->
+<!--              document.addEventListener('DOMContentLoaded', function() {-->
+<!--                var calendarEl = document.getElementById('calendar');-->
+
+<!--                var calendar = new FullCalendar.Calendar(calendarEl, {-->
+<!--                  plugins: [ 'interaction', 'dayGrid' ],-->
+<!--                  defaultDate: '2025-05',-->
+<!--                  editable: true,-->
+<!--                  eventLimit: true,-->
+<!--                });-->
+
+<!--                calendar.render();-->
+<!--              });-->
+
+<!--            </script>-->
+
+            <div class="bg-about-me">
+                <p class="upcoming-event text-uppercase text-center">Ближайшее мероприятие:</p>
+                <p class="upcoming-event-date"></p>
+            </div>
+
+            <!-- Рейтинг -->
+            <div class="card bg-gray text-white">
+                <div class="card-body">
+                    <h6 class="card-title rating text-center text-uppercase mt-50">Рейтинг</h6>
+                    <ol class="ps-3" start="1">
+                        {% for rating in top_ratings %}
+                        <li class="rate-item bg-about-me p-2 mb-1">
+                            {{ rating.user.get_full_name|default:rating.user.username }} - {{ rating.points }} баллов
+                            {% if rating.user == request.user %}
+                            <span class="badge bg-primary ms-2">Вы</span>
+                            {% endif %}
+                        </li>
+                        {% empty %}
+                        <li class="rate-item bg-about-me p-2">Рейтинг пока пуст</li>
+                        {% endfor %}
+                    </ol>
+                    {% if user_rating %}
+                    <div class="mt-3 p-2 bg-dark rounded">
+                        Ваша позиция:
+                        {% if user_rating.position %}
+                        {{ user_rating.position }} ({{ user_rating.points }} баллов)
+                        {% else %}
+                        пока не определена
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Для правильной работы sticky */
+.position-sticky {
+  align-self: flex-start;
+}
+
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'lk/js/js/main.js' %}"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Инициализация календаря
+    const calendarEl = document.getElementById('calendar');
+    if (calendarEl) {
+        new FullCalendar.Calendar(calendarEl, {
+            plugins: ['interaction', 'dayGrid'],
+            defaultDate: new Date(),
+            editable: true,
+            eventLimit: true,
+        }).render();
+    }
+
+    // Обработка отписки от мероприятий
+    document.querySelectorAll('.unregister-form').forEach(form => {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const button = form.querySelector('button');
+            const eventId = form.dataset.eventId;
+            const isVolunteer = form.dataset.isVolunteer === 'true';
+            const originalText = button.textContent;
+
+            // Подтверждение действия
+            const points = isVolunteer ? 35 : 20;
+            if (!confirm(`Вы точно хотите отписаться? (Будет списано ${points} баллов)`)) {
+                return;
+            }
+
+            // Показываем индикатор загрузки
+            button.disabled = true;
+            button.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Обработка...';
+
+            try {
+                const response = await fetch(`/event/unregister/${eventId}/`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': form.querySelector('[name=csrfmiddlewaretoken]').value,
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                });
+
+                const data = await response.json();
+
+                if (!response.ok || data.status !== 'success') {
+                    throw new Error(data.message || 'Ошибка сервера');
+                }
+
+                // Удаляем карточку мероприятия
+                form.closest('.card').remove();
+
+                // Обновляем UI если мероприятий не осталось
+                if (!document.querySelector('.event-list .card')) {
+                    document.querySelector('.event-list').innerHTML = `
+                        <div class="alert alert-info">
+                            У вас пока нет мероприятий. <a href="/event/">Посмотреть все мероприятия</a>
+                        </div>
+                    `;
+                }
+
+                // Показываем уведомление
+                alert(`${data.message}\nТекущие баллы: ${data.points}\nПозиция: ${data.position}`);
+
+            } catch (error) {
+                console.error('Ошибка:', error);
+                button.textContent = 'Ошибка';
+                button.classList.add('btn-danger');
+
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('btn-danger');
+                    button.disabled = false;
+                }, 2000);
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>
